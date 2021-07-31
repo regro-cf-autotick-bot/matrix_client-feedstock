@@ -18,10 +18,11 @@ requirements:
   host:
     - pip
     - pytest-runner >=5.1
-    - python
+    - python >=2.7
   run:
-    - python
+    - python >=2.7
     - requests
+    - urllib3
 
 test:
   imports:
