@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 0678af40f2cb2f0928a908a410c029747d40cb961ac5a3f1bd05aa35563c3156
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -18,13 +18,15 @@ requirements:
   host:
     - pip
     - pytest-runner >=5.1
-    - python >=2.7
+    - python {{ python_min }}
   run:
-    - python >=2.7
+    - python >={{ python_min }}
     - requests
     - urllib3
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - matrix_client
 
