@@ -17,6 +17,7 @@ build:
 requirements:
   host:
     - setuptools
+    - pytest-runner >=5.1
     - python {{ python_min }}
   run:
     - python >={{ python_min }}
